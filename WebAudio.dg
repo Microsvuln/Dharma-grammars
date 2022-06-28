@@ -1,0 +1,39 @@
+%%% Fuzzing Grammar
+%%% ###################################################
+%section% := value
+definition := 
+	try {var var_0_1 = {numberOfChannels : 23, length : 439386945, sampleRate : 177989.3288944185};}
+
+
+dictObject :=
+    try {var +myvars+ = New OfflineAudioContext(@propert@)} catch(e) {};
+    
+
+somethingnew :=
+	@props@.createStereoPanner()
+	
+	
+myvars :=
+	var_%range%(1-200)
+
+
+
+%section% := variable
+
+propert :=
+    try {var @propert@ = {numberOfChannels : 23, length : 439386945, sampleRate : 177989.3288944185}; } catch(e){};
+    
+    
+funcs  :=    
+    try {var @funcs@ = new +dictObject+ } catch(e) {};
+
+props :=
+	var @props@ = +dictObject+
+
+    
+%%% ###################################################
+%section% := variance
+main :=
+    +dictObject+
+    +somethingnew+
+    
