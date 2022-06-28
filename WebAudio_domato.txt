@@ -1,0 +1,116 @@
+
+<interestingint> = 32768
+<interestingint> = 65535
+<interestingint> = 65536
+<interestingint> = 1073741824
+<interestingint> = 536870912
+<interestingint> = 268435456
+<interestingint> = 397040.68110361835
+<interestingint> = 4294967295
+<interestingint> = 2147483648
+<interestingint> = 2147483647
+<interestingint> = 2147483647
+<interestingint> = -2147483648
+<interestingint> = -1073741824
+<interestingint> = 2234845371.1607285
+<interestingint> = -32769
+<interestingint> = 3827314817.93361
+<interestingint> = 370130.14307152707
+<interestingint> = 3982445413.7308226
+
+
+<interestingint1> = 31
+<interestingint1> = 16
+<interestingint1> = 19
+<interestingint1> = 65535
+<interestingint1> = -4096
+<interestingint1> = 1073741824
+<interestingint1> = 4096
+<interestingint1> = 100
+<interestingint1> = 397040.68110361835
+<interestingint1> = 4294967295
+<interestingint1> = 50
+<interestingint1> = 2147483647
+<interestingint1> = -2147483648
+<interestingint1> = -1073741824
+<interestingint1> = 1000
+
+
+
+!varformat fuzzvar%05d
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+
+<new element> = "playback"
+<new element> = {latencyHint : <element>, sampleRate : <interestingint>};
+<new element> = {latencyHint : "playback", sampleRate : 746656.4483630623};
+
+!end lines
+
+
+
+!varformat fuzzvar%05d
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+<new element00> = {numberOfChannels : 17, length : 52, sampleRate : 487320.43775096524};
+!end lines
+
+
+!varformat fuzzvar%05d
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+<new element0> = new AudioContext();
+<new element0> = new OfflineAudioContext(<element00>);
+<new element000> = {offset : element0.listener.positionX.maxValue}; 
+<new element0000> = {numberOfChannels : <interestingint1>, length : <interestingint>, sampleRate : <interestingint>};
+<new element00000> = new AudioBufferSourceNode(<element0>)
+<new element00000000> = new ArrayBuffer(<interestingint>);
+<element00000>.channelCount = <interestingint1>;
+<new element000000000> = <element0>.createBufferSource();
+<element0>.createScriptProcessor(<interestingint1>);
+<new element000000> = <element0>.listener.upZ.linearRampToValueAtTime(<interestingint>, <interestingint>);
+<new element0000000> = new DelayNode(<element0>.destination.context);
+<element0>.createDynamicsCompressor();
+<element0>.audioWorklet;
+<new element1> = <element0>.connect(<element>,0);
+<new element1-1> = <element0>.disconnect()
+!end lines
+
+
+
+!varformat fuzzvar%05d
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+<new element22>   = <element0>.createChannelMerger(<interestingint1>);
+<new element222>  = new DynamicsCompressorNode(<element22>);
+<new element2222> = new WaveShaperNode(<element22>.destination.context);
+<new element22222> = new AnalyserNode(<element22>);
+<new element2> = <element0>.destination();
+<element0>.destination.context.createConvolver();
+<element0>.createGain();
+<element0>.destination.context.createDynamicsCompressor();
+
+!end lines
+
+!varformat fuzzvar%05d
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+<new element2-3> = <element0>.createStereoPanner();
+!end lines
+
+
+
+
+
+
+
+
+
+
+
+
